@@ -1,0 +1,32 @@
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <h3>{{ shop.name }}</h3>
+      <p>{{ section.settings.tagline }}</p>
+    </div>
+    <div>
+      <h4>Customer care</h4>
+      <a href="/pages/contact">Contact</a>
+      <a href="/pages/shipping">Shipping</a>
+      <a href="/pages/returns">Returns</a>
+    </div>
+    <div>
+      <h4>Collections</h4>
+      <a href="/collections/all">All products</a>
+      <a href="/collections/all">Watches</a>
+      <a href="/collections/all">Accessories</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</p>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    { "type": "text", "id": "tagline", "label": "Tagline", "default": "A premium marketplace for curated luxury watches and accessories." }
+  ]
+}
+{% endschema %}

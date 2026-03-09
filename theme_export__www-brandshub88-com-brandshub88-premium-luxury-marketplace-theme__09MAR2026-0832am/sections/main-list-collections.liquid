@@ -1,0 +1,62 @@
+<section style="padding:60px 0;">
+  <div style="width:min(1240px,92%);margin:0 auto;">
+    <div style="margin-bottom:28px;">
+      <p style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#6d6d6d;margin:0 0 12px;">Collections</p>
+      <h1 style="font-family:'Playfair Display',serif;font-size:42px;margin:0;">{{ section.settings.title }}</h1>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat({{ section.settings.columns }},1fr);gap:20px;">
+      {% for collection in collections %}
+        <a href="{{ collection.url }}" style="display:block;padding:24px;border:1px solid #e8e2da;border-radius:18px;background:#fff;text-decoration:none;color:#111;">
+          
+          {% if collection.featured_image %}
+            {{
+              collection.featured_image
+              | image_url: width: 900
+              | image_tag:
+                alt: collection.title,
+                loading: 'lazy',
+                widths: '400, 600, 900',
+                style: 'width:100%;height:auto;border-radius:14px;margin-bottom:16px;display:block;'
+            }}
+          {% endif %}
+
+          <span style="font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:#6d6d6d;">Collection</span>
+          <h3 style="font-family:'Playfair Display',serif;font-size:28px;margin:14px 0 10px;">{{ collection.title }}</h3>
+          {% if section.settings.show_products_count %}
+<p>{{ collection.products_count }} products</p>
+{% endif %}
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main list collections",
+  "settings": [
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "Collections per row",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "checkbox",
+      "id": "show_products_count",
+      "label": "Show product count",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section title",
+      "default": "Product Collections"
+    }
+  ]
+}
+{% endschema %}

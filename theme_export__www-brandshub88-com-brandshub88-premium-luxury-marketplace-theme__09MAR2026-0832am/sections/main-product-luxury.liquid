@@ -1,0 +1,41 @@
+<section class="section">
+  <div class="container product-layout">
+    <div class="product-media">
+      {% if product.featured_image %}
+        <img src="{{ product.featured_image | image_url: width: 1200 }}" alt="{{ product.title | escape }}">
+      {% else %}
+        <div class="placeholder-box placeholder-box--large"></div>
+      {% endif %}
+    </div>
+    <div class="product-info">
+      {% if product.vendor != blank %}
+        <p class="eyebrow">{{ product.vendor }}</p>
+      {% endif %}
+      <h1>{{ product.title }}</h1>
+      <p class="product-info__price">{{ product.price | money }}</p>
+
+      {% form 'product', product %}
+        {% if product.has_only_default_variant == false %}
+          {% for option in product.options_with_values %}
+            <label class="field-label">{{ option.name }}</label>
+            <select class="field-input" name="options[{{ option.name }}]">
+              {% for value in option.values %}
+                <option value="{{ value }}" {% if option.selected_value == value %}selected{% endif %}>{{ value }}</option>
+              {% endfor %}
+            </select>
+          {% endfor %}
+        {% endif %}
+        <button class="btn btn--dark btn--full" type="submit" name="add">Add to cart</button>
+      {% endform %}
+
+      <div class="richtext">{{ product.description }}</div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main product luxury",
+  "settings": []
+}
+{% endschema %}

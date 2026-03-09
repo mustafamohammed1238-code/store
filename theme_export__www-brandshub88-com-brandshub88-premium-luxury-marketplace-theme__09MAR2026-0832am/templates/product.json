@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product-luxury",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
