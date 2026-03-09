@@ -1,0 +1,70 @@
+<section class="sugess-home section">
+  <div class="container">
+    <div class="sugess-home__hero">
+      <div class="sugess-home__copy">
+        <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+        <h1>{{ section.settings.heading }}</h1>
+        <p class="hero-luxury__text">{{ section.settings.text }}</p>
+        <div class="hero-luxury__actions">
+          <a class="btn btn--dark" href="{{ section.settings.primary_link | default: '/collections/all' }}">{{ section.settings.primary_label }}</a>
+          <a class="btn btn--light" href="{{ section.settings.secondary_link | default: '/collections/all' }}">{{ section.settings.secondary_label }}</a>
+        </div>
+      </div>
+      <div class="sugess-home__media">
+        {% if section.settings.hero_image != blank %}
+          <img src="{{ section.settings.hero_image | image_url: width: 1400 }}" alt="{{ section.settings.heading | escape }}" loading="eager">
+        {% else %}
+          <div class="placeholder-box placeholder-box--large"></div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="sugess-home__usp">
+      {% for block in section.blocks %}
+        {% if block.type == 'usp' %}
+          <article class="sugess-home__usp-item" {{ block.shopify_attributes }}>
+            <p class="sugess-home__usp-title">{{ block.settings.title }}</p>
+            <p class="sugess-home__usp-text">{{ block.settings.text }}</p>
+          </article>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Sugess style home",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "SUGESS WATCH OFFICIAL STORE" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Mechanical Watches Built For Everyday Collectors" },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "Design-forward automatic and hand-winding watches inspired by classic chronographs, marine timers, and modern sport profiles." },
+    { "type": "image_picker", "id": "hero_image", "label": "Hero image" },
+    { "type": "text", "id": "primary_label", "label": "Primary button label", "default": "Shop New Arrivals" },
+    { "type": "url", "id": "primary_link", "label": "Primary button link" },
+    { "type": "text", "id": "secondary_label", "label": "Secondary button label", "default": "Shop Best Sellers" },
+    { "type": "url", "id": "secondary_link", "label": "Secondary button link" }
+  ],
+  "blocks": [
+    {
+      "type": "usp",
+      "name": "USP item",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Free Worldwide Shipping" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Delivered with tracking and secure packaging." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sugess style home",
+      "blocks": [
+        { "type": "usp", "settings": { "title": "Free Worldwide Shipping", "text": "Delivered with tracking and secure packaging." } },
+        { "type": "usp", "settings": { "title": "2-Year Warranty", "text": "Factory-backed warranty on all eligible watches." } },
+        { "type": "usp", "settings": { "title": "30-Day Returns", "text": "Try the watch at home with easy return support." } }
+      ]
+    }
+  ]
+}
+{% endschema %}
