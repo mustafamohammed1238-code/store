@@ -1,1 +1,75 @@
-{"sections":{"hero":{"type":"hero-luxury","settings":{"image":"shopify:\/\/shop_images\/watches-bold-1.jpg","eyebrow":"Curated luxury marketplace","heading":"Shop Luxury","text":"Discover luxury watches and accessories with a clean premium experience built for modern collectors.","primary_label":"Brand New Watches","primary_link":"shopify:\/\/collections\/brand-new-watches","secondary_label":"Pre-Owned Watches","secondary_link":"shopify:\/\/collections\/pre-owned-watches"}},"collections":{"type":"featured-collections-grid","settings":{}},"featured":{"type":"featured-products-luxury","settings":{"heading":"Featured Products","collection":"all","limit":8}},"hero_luxury_w7zkHA":{"type":"hero-luxury","name":"Hero luxury","settings":{"eyebrow":"Why Shop With Us","heading":"Trust & Confidence","text":"Authenticity Guaranteed • Worldwide Insured Shipping • 3-Day Inspection Period • Secure Payment","primary_label":"Learn More","primary_link":"","secondary_label":"","secondary_link":""}},"trust_icons_rYczBk":{"type":"trust-icons","name":"Trust icons","settings":{}},"brands":{"type":"brands-marquee","settings":{}}},"order":["hero","collections","featured","hero_luxury_w7zkHA","trust_icons_rYczBk","brands"]}
+{
+  "sections": {
+    "brandshub_home": {
+      "type": "brandshub-home",
+      "settings": {
+        "eyebrow": "BRANDS HUB88",
+        "heading": "Premium Watches. Distinct Style. Built Around Trust.",
+        "text": "Explore a premium watch catalog with modern sport, dress, and everyday pieces selected for quality and value.",
+        "primary_label": "Shop Watches",
+        "primary_link": "shopify://collections/all",
+        "secondary_label": "Explore New Arrivals",
+        "secondary_link": "shopify://collections/all",
+        "meta_1": "Secure checkout",
+        "meta_2": "Worldwide shipping",
+        "meta_3": "Customer-first support"
+      },
+      "blocks": {
+        "usp_1": {
+          "type": "usp",
+          "settings": {
+            "title": "Authenticity Promise",
+            "text": "We prioritize clear product details and transparent sourcing standards."
+          }
+        },
+        "usp_2": {
+          "type": "usp",
+          "settings": {
+            "title": "Fast Global Dispatch",
+            "text": "Orders ship quickly with tracking so you can follow every step."
+          }
+        },
+        "usp_3": {
+          "type": "usp",
+          "settings": {
+            "title": "Easy Returns",
+            "text": "Eligible products can be returned within the stated returns policy."
+          }
+        }
+      },
+      "block_order": [
+        "usp_1",
+        "usp_2",
+        "usp_3"
+      ]
+    },
+    "collections": {
+      "type": "featured-collections-grid",
+      "settings": {}
+    },
+    "featured": {
+      "type": "featured-products-luxury",
+      "settings": {
+        "heading": "Best Seller Watches",
+        "collection": "all",
+        "limit": 8
+      }
+    },
+    "trust_icons_rYczBk": {
+      "type": "trust-icons",
+      "name": "Trust icons",
+      "settings": {}
+    },
+    "brands": {
+      "type": "brands-marquee",
+      "settings": {}
+    }
+  },
+  "order": [
+    "brandshub_home",
+    "collections",
+    "featured",
+    "trust_icons_rYczBk",
+    "brands"
+  ]
+}

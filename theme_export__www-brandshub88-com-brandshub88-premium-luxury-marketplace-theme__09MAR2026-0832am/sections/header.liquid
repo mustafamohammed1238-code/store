@@ -21,7 +21,7 @@
         {% else %}
           <li><a href="{{ routes.root_url }}">Home</a></li>
           <li><a href="/collections/all">Shop</a></li>
-          <li><a href="/collections/all">Watches</a></li>
+          <li><a href="/collections/all">New In</a></li>
           <li><a href="/pages/contact">Contact</a></li>
         {% endif %}
       </ul>
@@ -29,6 +29,7 @@
 
     <div class="header-actions">
       <a href="{{ routes.search_url }}">Search</a>
+      <a href="/account">Account</a>
       <a href="{{ routes.cart_url }}">Cart{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}</a>
     </div>
   </div>
